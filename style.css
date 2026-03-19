@@ -1,0 +1,9 @@
+ p {
+     background: rgb(232, 168, 180);
+     color: rgb(1, 0, 0);
+ }
+
+p.Tabelle {
+     background: rgb(211, 49, 79);
+     color: white;
+ }
