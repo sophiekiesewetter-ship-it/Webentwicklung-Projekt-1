@@ -7,13 +7,15 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+     <p>
      <h1>💘 Date Ideen</h1>
 
     <!-- Formular (Design, keine Funktion ohne Backend/JS) -->
     <form>
         <input type="text" placeholder="Date Idee">
         <textarea placeholder="Beschreibung"></textarea>
-
+        <p>
+        <h2>⭐️ Wie bewertet ihr das Date?</h2>
         <select>
             <option>⭐ 1 Stern</option>
             <option>⭐⭐ 2 Sterne</option>
@@ -21,41 +23,70 @@
             <option>⭐⭐⭐⭐ 4 Sterne</option>
             <option>⭐⭐⭐⭐⭐ 5 Sterne</option>
         </select>
+        </p>
 
-        <button>Hinzufügen</button>
-    </form>
-    
-    <p>
-      Date-Ideen <br />
-      Was haben wir gemacht?
-      Wie viele Sterne geben wir?
-     
+         <!-- Bild Upload -->
+    <label class="upload">
+        📷 Bild 
+        <input type="file" accept="image/*">
+    </label>
     </p>
-    
-    <p class="Tabelle"> <table>
-  <tr>
-    <th>Idee</th>
-    <th>Beschreibung</th>
-    <th>Bewertung</th>
-  </tr>
-  <tr>
-    <td>Picknick</td>
-    <td>Essen und Trinken vorbereiten</td>
-    <td>4/5 Stern</td>
-     <img
-  src="012df022b4067866575e39aa63e874f3.jpg"
-  alt="Essen und Trinken"
-  title="Picknick"
-/>
-  </tr>
-  <tr>
-    <td>Eislaufen</td>
-    <td>in Eishalle fahren</td>
-    <td>3/5 Sterne</td>
-  </tr>
-</table>
-</p class="Tabelle">
+    <p><!-- Ideen -->
+<h2>💡 Inspiration</h2>
 
-    <p hidden>Wird nicht angezeigt</p>
-  </body>
+<details>
+        <summary>🍽️ Romantische Dates</summary>
+        <ul>
+            <li>Candle-Light-Dinner zuhause</li>
+            <li>Restaurant mit Aussicht</li>
+            <li>Picknick bei Sonnenuntergang</li>
+        </ul>
+    </details>
+
+    <details>
+        <summary>🎯 Abenteuer Dates</summary>
+        <ul>
+            <li>Kletterpark</li>
+            <li>Escape Room</li>
+            <li>Bowling oder Minigolf</li>
+        </ul>
+    </details>
+
+    <details>
+        <summary>💸 Günstige Dates</summary>
+        <ul>
+            <li>Spaziergang + Eis essen</li>
+            <li>Filmabend zuhause</li>
+            <li>Gemeinsam kochen</li>
+        </ul>
+    </details>
+    </p>
+
+    <!-- ToDo Liste -->
+<h2>📝 Deine Liste</h2>
+
+<!-- ToDo Liste -->
+    <div class="todo-list">
+
+        <div class="todo-item">
+            <input type="checkbox" id="date1">
+            <label for="date1">🌳 Picknick im Park</label>
+            <span class="delete">✖</span>
+        </div>
+
+        <div class="todo-item">
+            <input type="checkbox" id="date2">
+            <label for="date2">🎬 Kinoabend zuhause</label>
+            <span class="delete">✖</span>
+        </div>
+
+        <div class="todo-item">
+            <input type="checkbox" id="date3">
+            <label for="date3">🚶 Spaziergang am See</label>
+            <span class="delete">✖</span>
+        </div>
+
+
+</form>
+</body>
 </html>
