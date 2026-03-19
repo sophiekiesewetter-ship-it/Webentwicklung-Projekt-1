@@ -3,7 +3,12 @@
      color: rgb(1, 0, 0);
  }
 
-p.Tabelle {
-     background: rgb(211, 49, 79);
-     color: white;
- }
+p {
+  font-size: 1em;
+  width: 70vw;
+}
+
+p {
+  font-family: "Lucida Console", Courier, monospace;
+}
+
