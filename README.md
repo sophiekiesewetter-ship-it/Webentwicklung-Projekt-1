@@ -4,12 +4,12 @@ Date-Ideen soll eine Webanwendung sein...
 
 ## Daten verwalten
 Für jedes Date...
-- Idee
+- eigene Idee
 - Beschreibung 
-- Bewertung
+- Bewertung (mit Sternen)
 - Bild einfügen (freiwillig)
-- Inspirationen
-- Liste mit Ideen (auch zum löschen)
+- vorgeschlagene Inspirationen für Ideen 
+- Liste mit Ideen (abhaken und löschen)
 
 
 ## Technische Umsetzung
