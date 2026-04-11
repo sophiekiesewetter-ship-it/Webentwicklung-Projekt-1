@@ -1,45 +1,106 @@
 <!DOCTYPE html>
 <html lang="de">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Date-Ideen</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-     <p>
-     <h1>Date Ideen</h1>
-     <h2>Hier findet ihr Date Ideen von A bis Z. </h2>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-    <!-- Formular (Design, keine Funktion ohne Backend/JS) -->
-    <form>
-        <input type="text" placeholder="Date Idee">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Date Ideen </title>
+  <link rel="stylesheet" href="style.css">
+</head>
 
-       <div class="textarea-box">
-    <textarea maxlength="300" placeholder="Beschreibung hinzufügen (max. 300 Zeichen)..."></textarea>
-    <div class="char-count">0 / 300 Zeichen</div>
-       </div>
-        <p>
-        <h2>⭐️ Wie bewertet ihr das Date?</h2>
-        <select>
-            <option>⭐ 1 Stern</option>
-            <option>⭐⭐ 2 Sterne</option>
-            <option>⭐⭐⭐ 3 Sterne</option>
-            <option>⭐⭐⭐⭐ 4 Sterne</option>
-            <option>⭐⭐⭐⭐⭐ 5 Sterne</option>
-        </select>
-        </p>
+<body>
 
-         <!-- Bild Upload -->
-    <label class="upload">
-        📷 Bild 
-        <input type="file" accept="image/*">
-    </label>
-    </p>
-     <!-- ToDo Liste -->
-<h2>📝 Deine Liste</h2>
+<header>
+  <h1>💖 Date Ideen</h1>
+</header>
 
-<!-- ToDo Liste -->
+<section class="form-section">
+  <input type="text" id="title" placeholder="Eigene Idee...">
+  <textarea id="description" placeholder="Beschreibung... (max. 300 Zeichen)" maxlength="300"></textarea>
+  <div class="textarea-box">
+     <div class="char-count">0 / 300 Zeichen</div>
+  </div>
+
+  <div class="bewertung">
+    <h2>Wie bewertet ihr das Date?</h2>
+    <div class="sterne">
+      <input type="radio" id="stern5" name="bewertung" value="5">
+      <label for="stern5" title="5 Sterne">★</label>
+      <input type="radio" id="stern4" name="bewertung" value="4">
+      <label for="stern4" title="4 Sterne">★</label>
+      <input type="radio" id="stern3" name="bewertung" value="3">
+      <label for="stern3" title="3 Sterne">★</label>
+      <input type="radio" id="stern2" name="bewertung" value="2">
+      <label for="stern2" title="2 Sterne">★</label>
+      <input type="radio" id="stern1" name="bewertung" value="1">
+      <label for="stern1" title="1 Stern">★</label>
+    </div>
+  </div>
+
+  <button type="button">Hinzufügen</button>
+
+  <!-- Bild Upload -->
+  <label class="upload">
+      📷 Bild 
+      <input type="file" accept="image/*">
+  </label>
+</section>
+
+
+<section class="inspiration">
+  <h2>✨ Inspiration</h2>
+  <div class="inspirationsbox">
+
+    <div class="card">
+      <img src="012df022b4067866575e39aa63e874f3.jpg">
+      <h3>Picknick im Park</h3>
+      <ul>
+        <li>Essen & Snacks vorbereiten</li>
+        <li>Decke einpacken</li>
+        <li>Getränke kaufen</li>
+      </ul>
+      <p>⭐⭐⭐⭐</p>
+    </div>
+
+    <div class="card">
+      <img src="2A3DEC19-ABE1-4A89-B772-DE487FA7BA51.jpeg">
+      <h3>Kinoabend zuhause</h3>
+      <ul>
+        <li>Lieblingsfilm auswählen</li>
+        <li>Snacks & Getränke vorbereiten</li>
+        <li>Gemütliche Sitzplätze schaffen</li>
+      </ul>
+      <p>⭐⭐⭐⭐⭐</p>
+    </div>
+
+    <div class="card">
+      <img src="07A01B37-3670-48C8-A422-AE69EDCCCAEE.jpeg">
+      <h3>Städtetrip</h3>
+      <ul>
+        <li>Sehenswürdigkeiten planen</li>
+        <li>Öffentliche Verkehrsmittel checken</li>
+        <li>Restaurants aussuchen</li>
+      </ul>
+      <p>⭐⭐⭐⭐⭐</p>
+    </div>
+
+    <div class="card">
+      <img src="249C16A4-191B-4511-8AC3-489243781FE3.jpeg">
+      <h3>Zusammen kochen</h3>
+      <ul>
+        <li>Rezept gemeinsam aussuchen</li>
+        <li>Zutaten teilen und vorbereiten</li>
+        <li>Musik für die Küche anmachen</li>
+      </ul>
+      <p>⭐⭐⭐⭐</p>
+    </div>
+
+  </div>
+</section>
+
+<section class="ideas">
+    <div class="ideasbox">
+  <h2>📌 Deine Ideen</h2>
+  <!-- ToDo Liste -->
     <div class="todo-list">
 
         <div class="todo-item">
@@ -58,38 +119,12 @@
             <input type="checkbox" id="date3">
             <label for="date3">🚶 Spaziergang am See</label>
             <span class="delete">✖</span>
+        </div>
+        <div id="ideaList"></div>
     </div>
+  </div>
+</section>
 
-    <p><!-- Ideen -->
-<h2>💡 Inspiration</h2>
 
-<details>
-        <summary>✨ Romantische Dates</summary>
-        <ul>
-            <li>Candle-Light-Dinner zuhause</li>
-            <li>Restaurant mit Aussicht</li>
-            <li>Picknick bei Sonnenuntergang</li>
-        </ul>
-    </details>
-
-    <details>
-        <summary>🎯 Abenteuer Dates</summary>
-        <ul>
-            <li>Kletterpark</li>
-            <li>Escape Room</li>
-            <li>Bowling oder Minigolf</li>
-        </ul>
-    </details>
-
-    <details>
-        <summary>💸 Günstige Dates</summary>
-        <ul>
-            <li>Spaziergang + Eis essen</li>
-            <li>Filmabend zuhause</li>
-            <li>Gemeinsam kochen</li>
-        </ul>
-    </details>
-    </p>
-</form>
 </body>
 </html>

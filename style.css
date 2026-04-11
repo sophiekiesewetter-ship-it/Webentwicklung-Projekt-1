@@ -1,125 +1,344 @@
- body {
-    font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(135deg, #ff758c, #ff7eb3);
-    margin: 0;
-    padding: 0;
+*, *::before, *::after {
+  box-sizing: border-box;
 }
 
-.container {
-    max-width: 600px;
-    margin: 40px auto;
-    padding: 20px;
+body {
+  font-family: 'Segoe UI', sans-serif;                                  /*schriftart wählen*/
+  margin: 0;                                                            /* Abstand nach außen in alle richtungen */
+  background: linear-gradient(to bottom, #fff0f5, #e6f7ff);         
+  color: #444;                                                        /* Textfarbe */
+  overflow-x: hidden;                                                   /* Verhindert horizontales Scrollen */
 }
 
-h1, h2 {
-    text-align: center;
-    color: white;
+header {
+  background: #ffd6e0;
+  padding: 1rem;                                                        /* Abstand nach innen in alle richtungen */
+  text-align: center;                                                   /* Zentriert den Text */
 }
 
-input[type="text"] {
-    flex: 1;
-    padding: 10px;
-    border-radius: 8px;
-    border: none;
+h1 {
+  margin: 0;
+}
+
+.form-section {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.8);                         /* Rand der Box, 1pixel breit, durchgezogen */
+  box-shadow: 0 24px 70px rgba(138, 58, 94, 0.10);                    /* Schatteneffekt: 0px horizontal, 24px vertikal, 70px Unschärfe, Farbe mit Transparenz */
+  border-radius: 28px;                                                  /* Abgerundete Ecken mit einem Radius von 28px */
+  padding: 2rem 1rem;
+  display: flex;                                                        /* Flexbox-Layout aktivieren */
+  flex-direction: column;                                               /* Elemente vertikal anordnen */
+  gap: 1rem;                                                            /* Abstand zwischen den Elementen */
+  margin: 2rem 0 1rem;
+  width: 100%;
+  max-width: none;
+  box-sizing: border-box;                                               /* Sorgt dafür, dass Padding und Border in der Gesamtbreite enthalten sind */
+}
+
+input,
+textarea,
+button {
+  width: 100%;
+  padding: 1rem 1.1rem;
+  border-radius: 18px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: #fbfcff;
+  font-size: 1rem;
+  font-family: inherit;
+  box-sizing: border-box;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+textarea {
+  resize: none;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: rgba(255, 106, 141, 0.6);
+  box-shadow: 0 0 0 4px rgba(255, 106, 141, 0.1);
+  transform: translateY(-1px);
+}
+
+textarea {
+  min-height: 140px;
+  resize: none;
+}
+
+textarea::placeholder,
+input::placeholder {
+  color: #9aa5c1;
 }
 
 button {
-    padding: 10px;
-    border: none;
-    border-radius: 8px;
-    background: #ff4d6d;
-    color: white;
-    cursor: pointer;
+  background: linear-gradient(135deg, #ff8fab 0%, #ffb3c6 100%);
+  border: 1px solid transparent;
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  box-shadow: 0 16px 28px rgba(255, 146, 167, 0.24);
 }
 
-/* ToDo Liste */
+button:hover {
+  transform: translateY(-1px);
+  background: linear-gradient(135deg, #ff7ea5 0%, #ffa7c0 100%);
+}
+
+.textarea-box {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 0.5rem;
+}
+
+.upload {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem 1.2rem;
+  border-radius: 18px;
+  background: #fff;
+  border: 1px dashed rgba(0, 0, 0, 0.12);
+  color: #5f6a8a;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;               /* animation */
+}
+
+.upload:hover {                                         /*animation*/
+  border-color: rgba(255, 106, 141, 0.8);
+  background: rgba(255, 250, 253, 0.9);
+  transform: translateY(-1px);
+}
+
+.upload input {
+  display: none;
+}
+
+.bewertung {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 1rem auto 0 auto;
+  text-align: center;
+}
+
+.bewertung h2 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.sterne {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  gap: 0.4rem;
+}
+
+.sterne input {
+  display: none;
+}
+
+.sterne label {
+  font-size: 2.5rem;
+  color: #ccc;
+  cursor: pointer;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.sterne label:hover,
+.sterne label:hover ~ label {
+  color: #ffcc00;
+}
+
+.sterne label:hover {
+  transform: scale(1.1);
+}
+
+.sterne input:checked ~ label,
+.sterne input:checked ~ label ~ label {
+  color: #ffcc00;
+}
+
+.filter {
+  padding: 1rem;
+}
+
+.inspiration {
+  padding: 1rem;
+}
+
+.ideas {
+  width: 100%;
+}
+
+.ideas h2 {
+  margin-left: 0.5rem;
+}
+
+.inspirationsbox {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+}
+
+.card {
+  background: white;
+  padding: 1rem;
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 10px;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.done {
+  opacity: 0.5;
+  text-decoration: line-through;
+}
+
+.ideasbox {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  padding: 1rem;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.ideas {
+  width: 100%;
+  padding: 0 1rem 1rem;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+.ideas h2 {
+  margin-left: 0;
+  padding-left: 0.5rem;
+}
+
+/* Animation */
+.fade-in {
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* To-Do Liste */
 .todo-list {
     background: white;
-    padding: 15px;
-    border-radius: 15px;
-    margin-bottom: 30px;
+    padding: 20px;
+    border-radius: 16px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    overflow: hidden;
+}
+
+.todo-list h2 {
+    text-align: center;
+    margin-bottom: 15px;
 }
 
 .todo-item {
-    display: flex;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
     align-items: center;
-    justify-content: space-between;
+    gap: 1rem;
     padding: 10px;
-    border-bottom: 1px solid #eee;
+    border-radius: 10px;
+    margin-bottom: 8px;
+    transition: 0.3s;
+    min-width: 0;
 }
 
-.todo-item:last-child {
-    border-bottom: none;
+.todo-item:hover {
+    background: #f5f7fa;
+}
+
+.todo-item input {
+    margin: 0;
+    cursor: pointer;
+}
+
+.todo-item label {
+    cursor: pointer;
+    min-width: 0;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+
+.todo-item:hover {
+    background: #f5f7fa;
+}
+
+.todo-item input {
+    margin-right: 10px;
+    cursor: pointer;
 }
 
 .todo-item label {
     flex: 1;
-    margin-left: 10px;
     cursor: pointer;
+    min-width: 0;
 }
 
-/* Abhaken Effekt */
 .todo-item input:checked + label {
     text-decoration: line-through;
-    color: gray;
+    color: #999;
 }
 
-/* Löschen (nur visuell) */
 .delete {
+    cursor: pointer;
+    color: #ff6b6b;
+    margin-left: 10px;
+    transition: 0.2s;
+}
+
+.delete:hover {
     color: red;
-    cursor: pointer;
-}
-/* Inspiration */
-details {
-    background: white;
-    margin-bottom: 10px;
-    padding: 10px;
-    border-radius: 10px;
+    transform: scale(1.2);
 }
 
-summary {
-    font-weight: bold;
-    cursor: pointer;
-}
+/* Responsive */
+@media (min-width: 768px) {
+  .form-section, .filter {
+    max-width: 800px;
+    margin: 2rem auto 1rem;
+  }
 
-/* Textarea Box */
-.textarea-box {
-    position: relative;
-    margin-top: 10px;
-}
-
-/* Feste Größe */
-textarea {
-    width: 100%;
-    height: 100px;
-    padding: 10px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    resize: none; /* verhindert Vergrößern */
-    box-sizing: border-box;
-}
-
-/* Zeichenanzeige */
-.char-count {
-    position: absolute;
-    bottom: 5px;
-    right: 10px;
-    font-size: 12px;
-    color: gray;
-}
-
-/* 📱 Mobile Optimierung */
-@media (max-width: 600px) {
-
-    .container {
-        padding: 10px;
-    }
-
-    .ideas {
-        flex-direction: column;
-    }
-
-    .rating label {
-        font-size: 25px;
-    }
+  .ideas {
+    max-width: none;
+    margin: 0;
+  }
 }
