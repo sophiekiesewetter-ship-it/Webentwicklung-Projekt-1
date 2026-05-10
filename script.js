@@ -1,38 +1,24 @@
-// ==========================================
-// JavaScript für die Date-Ideen Webseite
-// Dieses Skript macht die Seite interaktiv
-// ==========================================
 
-// ------------------------------
-// TEIL 1: Elemente aus dem HTML holen
-// Wir brauchen diese Elemente, um mit ihnen zu arbeiten
-// ------------------------------
-
-// Das ist der Button, der neue Ideen hinzufügt
 const myButton = document.getElementById('myButton');
 
-// Das Eingabefeld für den Titel der Idee
+
 const titleInput = document.getElementById('title');
 
-// Das Textfeld für die Beschreibung
+
 const descriptionInput = document.getElementById('description');
 
-// Die Liste, wo alle Ideen angezeigt werden
+
 const ideaList = document.getElementById('ideaList');
 
-// Zeigt an, wie viele Zeichen in der Beschreibung sind
+
 const charCount = document.querySelector('.char-count');
 
-// Alle Radio-Buttons für die Bewertung (Sterne)
+
 const ratingInputs = document.querySelectorAll('input[name="bewertung"]');
 
-// Das Eingabefeld für Bild-Uploads
+
 const uploadInput = document.querySelector('.upload input');
 
-// ------------------------------
-// TEIL 2: Globale Variablen
-// Diese speichern Daten, die wir im ganzen Programm brauchen
-// ------------------------------
 
 // Eine Liste (Array), die alle Ideen speichert
 let ideas = [];
@@ -43,10 +29,6 @@ let idCounter = 0;
 // Speichert das aktuell hochgeladene Bild als Daten-URL
 let currentImageData = null;
 
-// ------------------------------
-// TEIL 3: Bild-Upload verarbeiten
-// Wenn der User ein Bild auswählt, wird es hier gelesen
-// ------------------------------
 
 // Wenn sich etwas im Upload-Feld ändert (User wählt Datei aus)
 uploadInput.addEventListener('change', function(e) {
@@ -55,7 +37,7 @@ uploadInput.addEventListener('change', function(e) {
 
     // Prüfen, ob wirklich eine Datei ausgewählt wurde
     if (file) {
-        // FileReader liest die Datei als Daten-URL (Base64)
+        // FileReader liest die Datei als Daten-URL 
         const reader = new FileReader();
 
         // Wenn das Lesen fertig ist, speichere das Bild
@@ -68,11 +50,6 @@ uploadInput.addEventListener('change', function(e) {
     }
 });
 
-// ------------------------------
-// TEIL 4: localStorage – Daten dauerhaft speichern
-// Alle Ideen werden im Browser gespeichert und beim nächsten
-// Besuch automatisch wieder geladen
-// ------------------------------
 
 // Speichert alle Ideen als JSON im localStorage
 function saveToStorage() {
@@ -95,11 +72,6 @@ function loadFromStorage() {
     }
     return false;
 }
-
-// ------------------------------
-// TEIL 5: Beispielideen beim Start laden
-// Prüft zuerst localStorage – nur wenn leer, werden Beispiele geladen
-// ------------------------------
 
 function initializeExamples() {
     // Prüfen ob bereits Daten im localStorage vorhanden sind
@@ -159,10 +131,7 @@ function initializeExamples() {
     saveToStorage();
 }
 
-// ------------------------------
-// TEIL 6: Zeichen zählen
-// Zeigt live an, wie viele Zeichen in der Beschreibung sind
-// ------------------------------
+
 
 // Wenn der User in das Beschreibungsfeld tippt
 descriptionInput.addEventListener('input', function() {
@@ -170,10 +139,7 @@ descriptionInput.addEventListener('input', function() {
     charCount.textContent = this.value.length + ' / 300 Zeichen';
 });
 
-// ------------------------------
-// TEIL 7: Beschreibung in Punkte umwandeln
-// Wandelt Komma-getrennten Text in eine Liste um
-// ------------------------------
+//Beschreibung in Punkte umwandeln
 
 function parseDescription(description) {
     // Wenn keine Beschreibung da ist, leere Liste zurückgeben
@@ -187,11 +153,7 @@ function parseDescription(description) {
         .filter(item => item.length > 0);
 }
 
-// ------------------------------
-// TEIL 8: HTML-Sonderzeichen escapen
-// Verhindert, dass Nutzereingaben als HTML interpretiert werden
-// ------------------------------
-
+//KI 
 function escapeHtml(str) {
     return String(str)
         .replace(/&/g, '&amp;')
@@ -200,10 +162,9 @@ function escapeHtml(str) {
         .replace(/"/g, '&quot;');
 }
 
-// ------------------------------
-// TEIL 9: Neue Idee hinzufügen
+//Neue Idee hinzufügen
 // Wird ausgeführt, wenn der "Hinzufügen"-Button geklickt wird
-// ------------------------------
+
 
 myButton.addEventListener('click', function() {
     // Werte aus den Eingabefeldern holen und Leerzeichen entfernen
@@ -260,11 +221,7 @@ myButton.addEventListener('click', function() {
     titleInput.focus();
 });
 
-// ------------------------------
-// TEIL 10: Eine Idee auf der Seite anzeigen
-// Erstellt das HTML für eine Idee und fügt es hinzu
-// Optional: insertBeforeElement gibt an, vor welchem Element eingefügt wird
-// ------------------------------
+//KI
 
 function renderIdea(idea, insertBeforeElement = null) {
     // Wandele die Beschreibung in Bullet-Punkte um
@@ -313,9 +270,7 @@ function renderIdea(idea, insertBeforeElement = null) {
         ideaList.insertAdjacentHTML('beforeend', ideaHTML);
     }
 
-    // ------------------------------
-    // Event-Listener für die neue Karte hinzufügen
-    // ------------------------------
+    
 
     // Finde die gerade hinzugefügte Karte
     const todoCard = ideaList.querySelector(`[data-id="${idea.id}"]`);
@@ -361,10 +316,9 @@ function renderIdea(idea, insertBeforeElement = null) {
     }
 }
 
-// ------------------------------
-// TEIL 11: Idee bearbeiten
+
+// Idee bearbeiten
 // Zeigt ein Bearbeitungsformular direkt in der Karte an
-// ------------------------------
 
 function showEditForm(idea, cardElement) {
     const cardContent = cardElement.querySelector('.todo-card-content');
@@ -427,11 +381,12 @@ function showEditForm(idea, cardElement) {
     });
 }
 
-// ------------------------------
-// TEIL 12: Inspiration-Cards per DOM Manipulation erzeugen
+//KI
+
+// Inspiration-Cards per DOM Manipulation erzeugen
 // Die Cards werden mit createElement und appendChild in den DOM eingefügt –
 // kein hartcodiertes HTML im index.html
-// ------------------------------
+
 
 // Statische Vorschlagsdaten für die Inspiration-Section
 const inspirationItems = [
@@ -501,9 +456,6 @@ function renderInspirationCards() {
     });
 }
 
-// ------------------------------
-// TEIL 13: Programm starten
-// ------------------------------
 
 // Inspiration-Cards per DOM Manipulation erzeugen
 renderInspirationCards();
